@@ -131,6 +131,7 @@ porque ningún requisito las pide.
 | `loan_item.loan_id` → `loan.id` CASCADE | FK | **motor** |
 | `loan_item.book_id` → `book.id` RESTRICT | FK | **motor** |
 | `0 <= available_copies <= total_copies` | `ck_book_available_range` | **motor** — última barrera de concurrencia |
+| Descontar un ejemplar sin permitir valores negativos | `UPDATE` atómico con `available_copies > 0` y verificación de filas afectadas | **adaptador** — decisión de [`ADR-002`](adr/adr-002-concurrencia-optimista.md) |
 | `total_copies >= 1` | `ck_book_total_positive` | **pendiente (T-18)** · hoy solo dominio |
 | Único `(loan_id, book_id)` | índice único | **motor** |
 | `role` en (`admin`,`librarian`) | `ck_user_role` | **pendiente (T-18)** · hoy solo dominio |

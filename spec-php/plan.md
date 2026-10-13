@@ -10,7 +10,7 @@ Cómo se construye lo que dicen [`spec.md`](spec.md) y [`constitution.md`](const
 | D-01 | Lenguaje y runtime | PHP 8.5 | Stack del spec de referencia |
 | D-02 | Framework HTTP | Laravel | Contrato en [`api-contract.md`](api-contract.md) |
 | D-03 | Persistencia | Eloquent ORM + migraciones de Laravel sobre PostgreSQL 16 | El esquema es de las migraciones (ADR-001) |
-| D-04 | Concurrencia | Testigo de versión por libro + `CHECK` de rango ([ADR-002](adr/adr-002-concurrencia-optimista.md)) | Último ejemplar (RNF-2) |
+| D-04 | Concurrencia | `UPDATE` atómico condicionado por libro + `CHECK` de rango ([ADR-002](adr/adr-002-concurrencia-optimista.md)) | Último ejemplar (RNF-2) |
 | D-05 | Fechas | Instantes UTC (`timestamptz`); el reloj es un puerto (`Clock`) | Probar vencimientos sin esperar 14 días |
 | D-06 | Reporte | Una consulta agregada por un puerto de lectura ([ADR-004](adr/adr-004-reporte-agregado-y-congelado.md)) | Estable y barato |
 | D-07 | Objetos de valor | `Isbn`, `Quantity`, `DocumentNumber`, `DateRange`: viven dentro de la fila de su dueño, sin tabla | No tienen identidad |

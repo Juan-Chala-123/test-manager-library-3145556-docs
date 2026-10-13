@@ -71,7 +71,7 @@ sequenceDiagram
     S->>B: obtener libros por lote (Q3)
     S->>S: Loan.AddItem → Book.Withdraw (por cada libro)
     S->>L: guardar préstamo + libros (una transacción)
-    L-->>S: ok o conflicto de versión
+    L-->>S: ok o BOOK_NOT_AVAILABLE
     S-->>H: préstamo o BOOK_NOT_AVAILABLE
     H-->>C: 201 o 409
 ```
